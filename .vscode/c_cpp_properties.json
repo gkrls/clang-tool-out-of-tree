@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${env:LLVM_HOME}/include",
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "${env:LLVM_HOME}/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
