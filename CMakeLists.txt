@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2)
-project("clang-tool-basic")
+project("clang-tool-out-of-tree")
 
 if ( NOT DEFINED ENV{LLVM_HOME})
     message(FATAL_ERROR "$LLVM_HOME is not defined")
