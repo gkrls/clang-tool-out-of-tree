@@ -4,6 +4,7 @@ project("clang-tool-out-of-tree")
 if ( NOT DEFINED ENV{LLVM_HOME})
     message(FATAL_ERROR "$LLVM_HOME is not defined")
 else()
+    message(STATUS "$LLVM_HOME found: $ENV{LLVM_HOME}")
     set(LLVM_HOME $ENV{LLVM_HOME} CACHE PATH "Root of LLVM installation")
     set(LLVM_INC ${LLVM_HOME}/include)
     set(LLVM_LIB ${LLVM_HOME}/lib)
@@ -32,24 +33,21 @@ else()
 
     link_directories(${LLVM_LIBRARY_DIRS})
 
-    message(${LLVM_INCLUDE_DIRS})
-    message(${LLVM_LIBRARY_DIRS})
-
     set(SOURCE_FILES src/SimpleClangCheck.cpp)
 
-    add_executable(tool-simple-clang-check ${SOURCE_FILES})
-    set_target_properties(tool-simple-clang-check PROPERTIES COMPILE_FLAGS "-fno-rtti")
+    add_executable(simple-clang-check ${SOURCE_FILES})
+    set_target_properties(simple-clang-check PROPERTIES COMPILE_FLAGS "-fno-rtti")
 
     add_definitions(${LLVM_CXXFLAGS})
-    target_compile_options(tool-simple-clang-check PUBLIC "-fPIC")
+    target_compile_options(simple-clang-check PUBLIC "-fPIC")
 
-    target_link_libraries(tool-simple-clang-check
+    target_link_libraries(simple-clang-check
         LLVMSupport
         clangTooling
         clangBasic
         clangASTMatchers
     )
 
-    target_link_libraries(tool-simple-clang-check pthread z dl)
+    target_link_libraries(simple-clang-check pthread z dl)
 
 endif()
