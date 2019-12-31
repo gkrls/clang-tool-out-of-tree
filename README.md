@@ -14,3 +14,10 @@ Run:
 ```
 ./simple-clang-check <your-source-file.cpp>
 ```
+
+Example:
+```
+$ ./simple-clang-check ../src/SimpleClangCheck.cpp
+Clang Tool Starting...
+Syntax OK
+```
